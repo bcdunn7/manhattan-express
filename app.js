@@ -1,7 +1,14 @@
 const express = require('express');
+const { Configuration, OpenAIApi } = require('openai');
 const cors = require('cors');
 const app = express();
 const port = 3001;
+
+const configuration = new Configuration({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const openai = new OpenAIApi(configuration);
 
 app.use(cors({
   origin: ['http://localhost:5173'],
